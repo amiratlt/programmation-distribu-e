@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<!--Links-->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="employees" class="nav-link">Liste des employés</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="add" class="nav-link">Ajouter un employé</a>
+    </li>
+    <li class ="nav-item">
+      <a routerLink="equipe" class ="nav-link">création et affichage des départements</a>
+    </li>
+    <li class ="nav-item">
+      <a routerLink="recherch" class="nav-link">Chercher un employé</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <br>
+  <h5 style="text-align: center;">{{title}}</h5>
+  <hr>
+  <div class="card">
+    <div class="card-body">
+    <router-outlet></router-outlet>
+    </div>
+    </div>
+
+</div>
+<footer class="footer">
+  <p class="text-muted"style="text-align:center;"> programmation distribuée 2021-2022 </p>
+</footer>

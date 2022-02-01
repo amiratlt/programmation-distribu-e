@@ -1,0 +1,46 @@
+
+
+<h4 [hidden]="submitted"><u>Ajouter un département :</u></h4>
+<div [hidden]="submitted" style="width: 400px;">
+    <form >
+        <div class="form-group">
+            
+            <label for="nom">Nom departement :</label>
+            <input type="text" class="form-control" id="nom" required [(ngModel)]="nom" name="nom">
+        </div>
+        <br>
+        <button (click)="onSubmit()" type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+
+<br>
+<br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    <h4><u>Liste des Départements</u></h4>
+    </div>
+<div class="panel-body">
+    <table class="table bg-light table-hover">
+        <thead>
+            <tr>
+                <th> Id du département </th>
+                <th> Nom du département </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dep of departements">
+                <td>{{dep.idDepart}}</td>
+                <td>{{dep.nomDepart}}</td>
+            </tr>
+        </tbody>
+        </table>
+</div>
+
+
+<div [hidden]="!submitted">
+    <div [hidden]="echec"class="alert alert-success" role="alert">
+         Le département a été créer avec succès !
+    </div>
+      <button (click)="gotoList()" class="btn btn-primary">retour à la list de employés</button>
+  </div>

@@ -1,0 +1,55 @@
+<h4><u>Ajouter un employé:</u></h4>
+<div [hidden]="submitted"style="width:400px;">
+<form (ngSubmit)="onSubmit()">
+<div class="form-group">
+<label for="nom">Nom</label>
+<input type="text"class="form-control"
+id="nom" required [(ngModel)]="employee.nom" name="nom">
+</div>
+<br>
+<div class="form-group">
+<label for="prenom">Prénom</label>
+<input type="text"class="form-control"
+id="prenom" required [(ngModel)]="employee.prenom"name="prenom">
+<br>
+</div>
+<div class="form-group">
+<label for="adressMail">Adresse E-mail</label>
+<input type="text"class="form-control"
+id="adressMail" required [(ngModel)]="employee.adressMail"name="adressMail">
+</div>
+<br>
+<label for="NomDep">Nom du département</label>
+<select  (change)="selectChangeHandler($event)" class="form-select"  aria-label="Default select example">
+
+  <option value='{{dep.idDepart}}'  *ngFor="let dep of departements">{{dep.nomDepart}}</option>
+
+</select>
+<br>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Ajouter
+        </button>
+</form>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmez-vous l'ajout d'un employé ?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+       
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button (click)="onSubmit()" type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirmer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+<div [hidden]="!submitted">
+    <div class="alert alert-success" role="alert">
+         L'employé a été créer avec succès !
+    </div>
+      <button (click)="gotoList()" class="btn btn-primary">retour à la list de employés</button>
+  </div>

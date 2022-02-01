@@ -1,0 +1,19 @@
+<h4><u>Mettre à jour un employé</u></h4>
+<div style="width:400px;">
+    <form (ngSubmit)="onSubmit()">
+<div class="form-group">
+    <label for="nom">Nom</label><br>
+    <input type="text"class="form-control"id="nom" required [(ngModel)]="employee.nom"name="nom"><br>
+</div>
+<div class="form-group">
+    <label for="prenom">Prénom</label>
+    <input type="text"class="form-control"id="prenom" required [(ngModel)]="employee.prenom" name="prenom"><br>
+</div>
+<div class="form-group">
+    <label for="adressMail">AdresseeMail</label>
+    <input type="text"class="form-control"id="adressMail" required [(ngModel)]="employee.adressMail"name="adressMail"><br>
+</div>
+<br>
+    <button type="submit"class="btn btn-success">Submit</button>
+</form>
+</div>

@@ -1,0 +1,86 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    <h4><u>Liste des employés</u></h4>
+    </div>
+<div class="panel-body">
+    <table class="table bg-light table-hover">
+        <thead>
+            <tr>
+                <th> Nom </th>
+                <th> Prénom </th>
+                <th> Email </th>
+                <th> Département </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.nom}}</td>
+                <td>{{employee.prenom}}</td>
+                <td>{{employee.adressMail}}</td>
+                <!--<td>{{employee.departement.idDepart}}</td>-->
+                
+                    
+                    <td><button (click)="employeeUpdate(employee.id)"
+                        class="btn btn-info" style="margin-left:10px">
+                        Mettre à jour</button>
+                    </td>
+
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Supprimer
+                    </button>
+                    </td>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Confirmez-vous la suppression de cet employé ?</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                           
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                              <button (click)="deleteEmployee(employee.id)" class="btn btn-danger" data-bs-dismiss="modal">Confirmer</button>
+                             </div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                    <div [hidden]="!submitted">
+                        <div class="alert alert-success" role="alert">
+                             L'employé a été supprimé avec succès !
+                        </div>
+            
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   <td><button (click)="getEmployee(employee.id)"
+                    class="btn btn-info" style="margin-left:10px">
+                    Détail</button>
+                </td> 
+
+
+            </tr>
+        </tbody>
+        </table>
+</div>
+
+</div>

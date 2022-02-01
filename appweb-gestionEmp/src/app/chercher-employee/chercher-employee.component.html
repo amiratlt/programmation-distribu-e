@@ -1,0 +1,55 @@
+<div>
+<div class="panel-heading">
+    <h4><u>Chercher un employé:</u></h4>
+    <br>
+    <label>Nom complet / mot clé : </label>
+    <br><br>
+    <input type="text" 
+        [(ngModel)]="champ">
+    
+    
+    <button  
+        (click)="chercherEmploye(champ)"
+        [disabled]="cherche"
+        class="btn btn-info" style="margin-left:10px"
+        
+    >chercher Employé par nom</button>
+    <button  
+        (click)="chercherEmployeContains(champ)"
+        [disabled]="cherche"
+        class="btn btn-info" style="margin-left:10px"
+        
+    >chercher Employé par mot clé</button>
+</div>
+
+<div class="panel-body">
+    <table class="table bg-light table-hover">
+        <thead>
+            <tr>
+                <th> Nom </th>
+                <th> Prénom </th>
+                <th> Email </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.nom}}</td>
+                <td>{{employee.prenom}}</td>
+                <td>{{employee.adressMail}}</td>
+                <td>
+                    <button (click)="employeeUpdate(employee.id)"
+                    class="btn btn-info" style="margin-left:10px">
+                    Mettre à jour</button>
+                </td>
+                <td>
+                    <button (click)="deleteEmployee(employee.id)"
+                    class="btn btn-danger">Supprimer</button>
+                </td>
+
+            </tr>
+        </tbody>
+        </table>
+</div>
+
+
+</div>
